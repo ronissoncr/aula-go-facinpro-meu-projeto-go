@@ -25,7 +25,7 @@ meu-projeto-go/
 
 ### 1. Clonar ou baixar este repositório
 ```bash
-git clone URL_PROJETO
+git clone https://github.com/ronissoncr/aula-go-facinpro-meu-projeto-go 
 cd meu-projeto-go
 ```
 
