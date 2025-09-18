@@ -6,8 +6,10 @@ package main
 import (
 	"fmt"
 
-	"github.com/seu-usuario/meu-projeto-go/internal/fibonacci"
-	"github.com/seu-usuario/meu-projeto-go/internal/hello"
+	// "github.com/seu-usuario/meu-projeto-go/internal/fibonacci"
+	// "github.com/seu-usuario/meu-projeto-go/internal/hello"
+	"meu-projeto-go/internal/fibonacci"
+	"meu-projeto-go/internal/hello"
 )
 
 // Função principal do programa
