@@ -11,6 +11,7 @@ import (
 	"strings"
 
 	// Mantendo todos os seus pacotes internos
+
 	calculator "github.com/seu-usuario/meu-projeto-go/internal/calcular-imc"
 	"github.com/seu-usuario/meu-projeto-go/internal/fibonacci"
 	"github.com/seu-usuario/meu-projeto-go/internal/hello"
