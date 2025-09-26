@@ -7,9 +7,11 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 
 	// Mantendo todos os seus pacotes internos
+	calculator "github.com/seu-usuario/meu-projeto-go/internal/calcular-imc"
 	"github.com/seu-usuario/meu-projeto-go/internal/fibonacci"
 	"github.com/seu-usuario/meu-projeto-go/internal/hello"
 	"github.com/seu-usuario/meu-projeto-go/internal/memoriago"
@@ -29,6 +31,8 @@ func main() {
 		fmt.Println("1. Jogo da Memória")
 		fmt.Println("2. Demonstração Fibonacci")
 		fmt.Println("3. Dizer Olá")
+		fmt.Println("4. Demonstração de Funções (Saudação e Anônima)") // <-- NOVA OPÇÃO
+		fmt.Println("Calcular o IMC:")
 		fmt.Println("---------------------------")
 		fmt.Println("Digite 'sair' para terminar.")
 		fmt.Print("Escolha uma opção: ")
@@ -57,6 +61,52 @@ func main() {
 			hello.SayHello()
 			fmt.Println("\nPressione ENTER para voltar ao menu...")
 			_, _ = reader.ReadString('\n')
+		case "4": // <-- LÓGICA DA ATIVIDADE MOVIDA PARA CÁ
+			fmt.Println("\n--- Demonstração de Funções (Quadro Branco) ---")
+			// Parte 1: Usando a função nomeada do pacote 'hello'
+			mensagemNomeada := hello.Saudacao("Galera da Aula")
+			fmt.Println("Função Nomeada:", mensagemNomeada)
+
+			// Parte 2: Usando uma Função Anônima
+			mensagemAnonima := func(nome string) string {
+				return fmt.Sprintf("Até mais, %s!", nome)
+			}("Mundo")
+			fmt.Println("Função Anônima:", mensagemAnonima)
+
+			fmt.Println("\nPressione ENTER para voltar ao menu...")
+			_, _ = reader.ReadString('\n')
+		case "5":
+			fmt.Println("\n--- Calculadora de IMC ---")
+
+			// Pede o peso
+			fmt.Print("Digite seu peso em kg (ex: 82.5): ")
+			pesoStr, _ := reader.ReadString('\n')
+			peso, err := strconv.ParseFloat(strings.TrimSpace(pesoStr), 64)
+			if err != nil {
+				fmt.Println("Valor de peso inválido. Pressione ENTER para tentar novamente.")
+				_, _ = reader.ReadString('\n')
+				continue // Volta para o início do menu
+			}
+
+			// Pede a altura
+			fmt.Print("Digite sua altura em metros (ex: 1.79): ")
+			alturaStr, _ := reader.ReadString('\n')
+			altura, err := strconv.ParseFloat(strings.TrimSpace(alturaStr), 64)
+			if err != nil {
+				fmt.Println("Valor de altura inválido. Pressione ENTER para tentar novamente.")
+				_, _ = reader.ReadString('\n')
+				continue // Volta para o início do menu
+			}
+
+			// Chama a função do pacote 'calculator'
+			imc := calculator.CalcularIMC(peso, altura)
+
+			// Exibe o resultado
+			fmt.Printf("\nSeu IMC é: %.2f\n", imc)
+
+			fmt.Println("\nPressione ENTER para voltar ao menu...")
+			_, _ = reader.ReadString('\n')
+		// --- FIM DO NOVO BLOCO ---
 		case "sair":
 			fmt.Println("Até a próxima!")
 			return // Encerra o programa
