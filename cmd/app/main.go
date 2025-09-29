@@ -12,10 +12,10 @@ import (
 
 	// Mantendo todos os seus pacotes internos
 
-	calculator "github.com/seu-usuario/meu-projeto-go/internal/calcular-imc"
-	"github.com/seu-usuario/meu-projeto-go/internal/fibonacci"
-	"github.com/seu-usuario/meu-projeto-go/internal/hello"
-	"github.com/seu-usuario/meu-projeto-go/internal/memoriago"
+	calculator "github.com/ruanout1/aula-go-facinpro-meu-projeto-go/internal/calcular-imc"
+	"github.com/ruanout1/aula-go-facinpro-meu-projeto-go/internal/fibonacci"
+	"github.com/ruanout1/aula-go-facinpro-meu-projeto-go/internal/hello"
+	"github.com/ruanout1/aula-go-facinpro-meu-projeto-go/internal/memoriago"
 )
 
 // Função principal do programa
