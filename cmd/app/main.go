@@ -33,7 +33,7 @@ func main() {
 		fmt.Println("2. Demonstração Fibonacci")
 		fmt.Println("3. Dizer Olá")
 		fmt.Println("4. Demonstração de Funções (Saudação e Anônima)") // <-- NOVA OPÇÃO
-		fmt.Println("Calcular o IMC:")
+		fmt.Println("5. Calcular o IMC:")
 		fmt.Println("---------------------------")
 		fmt.Println("Digite 'sair' para terminar.")
 		fmt.Print("Escolha uma opção: ")
