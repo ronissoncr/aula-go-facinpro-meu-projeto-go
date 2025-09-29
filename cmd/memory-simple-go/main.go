@@ -10,7 +10,7 @@ package main
 // 	memorysimplego "github.com/seu-usuario/meu-projeto-go/internal/memory-simple-go"
 // )
 
-import memorysimplego "meu-projeto-go/internal/memory-simple-go"
+import memorysimplego "github.com/ruanout1/aula-go-facinpro-meu-projeto-go/internal/memory-simple-go"
 
 func main() {
 	memorysimplego.Run()
