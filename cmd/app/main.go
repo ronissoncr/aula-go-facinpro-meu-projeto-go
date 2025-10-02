@@ -9,6 +9,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 
 	// Mantendo todos os seus pacotes internos
 
@@ -34,6 +35,7 @@ func main() {
 		fmt.Println("3. Dizer Olá")
 		fmt.Println("4. Demonstração de Funções (Saudação e Anônima)") // <-- NOVA OPÇÃO
 		fmt.Println("5. Calcular o IMC:")
+		fmt.Println("6. Demonstração de Concorrência com Função Anônima (Goroutine)")
 		fmt.Println("---------------------------")
 		fmt.Println("Digite 'sair' para terminar.")
 		fmt.Print("Escolha uma opção: ")
@@ -86,6 +88,7 @@ func main() {
 			if err != nil {
 				fmt.Println("Valor de peso inválido. Pressione ENTER para tentar novamente.")
 				_, _ = reader.ReadString('\n')
+
 				continue // Volta para o início do menu
 			}
 
@@ -106,6 +109,20 @@ func main() {
 			fmt.Printf("\nSeu IMC é: %.2f\n", imc)
 
 			fmt.Println("\nPressione ENTER para voltar ao menu...")
+			_, _ = reader.ReadString('\n')
+		case "6":
+			fmt.Println("\n--- Demonstração de Concorrência com Goroutine ---")
+			fmt.Println("Iniciando uma tarefa em segundo plano...")
+
+			// Aqui usamos a função anônima para iniciar a goroutine
+			go func() {
+				// Este código roda de forma concorrente (em "paralelo")
+				time.Sleep(2 * time.Second) // Simula um trabalho demorado
+				fmt.Println("\n>>> [Goroutine] Tarefa em segundo plano concluída! <<<")
+			}()
+
+			fmt.Println("O programa principal não esperou e continuou executando.")
+			fmt.Println("Pressione ENTER para voltar ao menu... (A mensagem da goroutine pode aparecer a qualquer momento)")
 			_, _ = reader.ReadString('\n')
 		// --- FIM DO NOVO BLOCO ---
 		case "sair":
