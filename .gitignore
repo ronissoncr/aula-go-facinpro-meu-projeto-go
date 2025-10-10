@@ -4,6 +4,7 @@
 *.dll
 *.so
 *.dylib
+main
 
 # Test binary, built with `go test -c`
 *.test
@@ -13,4 +14,49 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Docker
+.dockerignore
+
+# Go modules
+go.sum
+
+# Arquivos de ambiente locais (manter apenas os de exemplo)
+.env
+.env.local
+.env.backup
+
+# Dados do MongoDB (volumes Docker)
+mongo_data/
+
+# Certificados
+*.pem
+*.key
+*.crt
+
+# Backup files
+*.bak
+*.backup
+
+# Temporary files
+tmp/
+temp/

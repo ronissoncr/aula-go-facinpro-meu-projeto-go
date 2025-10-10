@@ -1,0 +1,160 @@
+services:
+  # ===========================================
+  # APLICAÇÃO GO - DESENVOLVIMENTO 
+  # ===========================================
+  app-dev:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: go-mongo-app-dev
+    env_file:
+      - .env.dev
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo-dev
+    networks:
+      - app-network-dev
+    volumes:
+      - .:/app
+    restart: unless-stopped
+    profiles:
+      - dev
+
+  mongo-dev:
+    image: mongo:7.0
+    container_name: mongo-dev
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: dev_user
+      MONGO_INITDB_ROOT_PASSWORD: dev_password123
+      MONGO_INITDB_DATABASE: app_development
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data_dev:/data/db
+      - ./docker/mongo-init-dev.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - app-network-dev
+    restart: unless-stopped
+    profiles:
+      - dev
+
+  # ===========================================
+  # APLICAÇÃO GO - HOMOLOGAÇÃO
+  # ===========================================
+  app-hml:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: go-mongo-app-hml
+    env_file:
+      - .env.hml
+    ports:
+      - "8081:8080"
+    depends_on:
+      - mongo-hml
+    networks:
+      - app-network-hml
+    restart: unless-stopped
+    profiles:
+      - hml
+
+  mongo-hml:
+    image: mongo:7.0
+    container_name: mongo-hml
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: hml_user
+      MONGO_INITDB_ROOT_PASSWORD: hml_password456
+      MONGO_INITDB_DATABASE: app_homologation
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo_data_hml:/data/db
+      - ./docker/mongo-init-hml.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - app-network-hml
+    restart: unless-stopped
+    profiles:
+      - hml
+
+  # ===========================================
+  # APLICAÇÃO GO - PRODUÇÃO
+  # ===========================================
+  app-prod:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: go-mongo-app-prod
+    env_file:
+      - .env.prod
+    ports:
+      - "8082:8080"
+    depends_on:
+      - mongo-prod
+    networks:
+      - app-network-prod
+    restart: unless-stopped
+    profiles:
+      - prod
+
+  mongo-prod:
+    image: mongo:7.0
+    container_name: mongo-prod
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: prod_user
+      MONGO_INITDB_ROOT_PASSWORD: prod_super_secure_password789
+      MONGO_INITDB_DATABASE: app_production
+    ports:
+      - "27019:27017"
+    volumes:
+      - mongo_data_prod:/data/db
+      - ./docker/mongo-init-prod.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - app-network-prod
+    restart: unless-stopped
+    profiles:
+      - prod
+
+  # ===========================================
+  # MONGO EXPRESS - INTERFACE WEB (OPCIONAL)
+  # ===========================================
+  mongo-express-dev:
+    image: mongo-express
+    container_name: mongo-express-dev
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: dev_user
+      ME_CONFIG_MONGODB_ADMINPASSWORD: dev_password123
+      ME_CONFIG_MONGODB_URL: mongodb://dev_user:dev_password123@mongo-dev:27017/
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: admin123
+    ports:
+      - "8090:8081"
+    depends_on:
+      - mongo-dev
+    networks:
+      - app-network-dev
+    profiles:
+      - dev
+      - dev-with-ui
+
+# ===========================================
+# NETWORKS
+# ===========================================
+networks:
+  app-network-dev:
+    driver: bridge
+  app-network-hml:
+    driver: bridge
+  app-network-prod:
+    driver: bridge
+
+# ===========================================
+# VOLUMES
+# ===========================================
+volumes:
+  mongo_data_dev:
+    driver: local
+  mongo_data_hml:
+    driver: local
+  mongo_data_prod:
+    driver: local
