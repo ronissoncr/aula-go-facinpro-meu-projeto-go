@@ -1,6 +1,8 @@
 // Questoes sobre estrutura de linguagem GO
 
-//1. Um desenvolvedor precisa armazenar uma lista de nomes de produtos para um carrinho de compras. A quantidade de produtos no carrinho pode aumentar ou diminuir a qualquer momento. Qual das seguintes estruturas de dados em Go é a mais apropriada para essa tarefa?
+//1. Um desenvolvedor precisa armazenar uma lista de nomes de produtos para um carrinho de compras.
+//  A quantidade de produtos no carrinho pode aumentar ou diminuir a qualquer momento. 
+//  Qual das seguintes estruturas de dados em Go é a mais apropriada para essa tarefa?
 
 // a) var produtos [10]string (Array)
 // b) produtos := make(map[int]string) (Map)
