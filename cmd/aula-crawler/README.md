@@ -1,6 +1,5 @@
 # 🚀 Aula: Web Crawler em Golang
 
-Bem-vindo à aula mais completa sobre Web Crawlers em Go! Aqui você aprenderá desde o básico até técnicas profissionais de crawling.
 
 ## 📚 Índice
 
