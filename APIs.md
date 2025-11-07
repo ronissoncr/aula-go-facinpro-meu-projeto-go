@@ -24,6 +24,9 @@ docker-compose --profile dev --profile hml --profile prod up -d
 
 ## 🛠️ Endpoints da API:
 
+
+URL: localhost/
+
 - `GET /` - Página inicial
 - `GET /health` - Status da aplicação
 - `GET /config` - Configurações (sem senhas)
