@@ -96,9 +96,9 @@ func main() {
 	fmt.Println()
 
 	urls := []string{
-		"https://golang.org",
-		"https://go.dev",
-		"https://github.com",
+		"https://facinpro.edu.br/",
+		"https://www.amazon.com.br/",
+		"https://classroom.google.com/",
 		"https://stackoverflow.com",
 		"https://www.reddit.com",
 		"https://news.ycombinator.com",
@@ -133,7 +133,7 @@ func main() {
 
 	// Cria e inicia os workers
 	for i := 1; i <= workerCount; i++ {
-		wg.Add(1) // Incrementa o contador do WaitGroup
+		wg.Add(1)                        // Incrementa o contador do WaitGroup
 		go worker(i, jobs, results, &wg) // 🔥 AQUI ESTÁ A MÁGICA!
 		// A palavra "go" faz a função rodar em paralelo!
 	}

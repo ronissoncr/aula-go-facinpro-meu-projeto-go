@@ -15,7 +15,7 @@ import (
 	"time"
 
 	//"github.com/seu-usuario/meu-projeto-go/internal/memorygame"
-	"meu-projeto-go/internal/memorygame"
+	"github.com/ruanout1/aula-go-facinpro-meu-projeto-go/internal/memorygame"
 )
 
 func main() {

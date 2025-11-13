@@ -1,4 +1,4 @@
-package demoaula
+package main
 
 import "fmt"
 
@@ -67,6 +67,7 @@ func main() {
 	}
 
 	fmt.Printf("Aluno: %+v\n", aluno1)
+	fmt.Printf("Nome: %s, Nota: %.1f, Turma: %s\n")
 	fmt.Printf("Nome: %s, Nota: %.1f, Turma: %s\n",
 		aluno1.Nome, aluno1.Nota, aluno1.Turma)
 	fmt.Println()
@@ -142,6 +143,7 @@ func main() {
 		} else if aluno.Nota >= 8.0 {
 			conceito = "B"
 		}
+		fmt.Printf("  %d: %s (Turma %s) - Nota: %.1f - Conceito: %s\n")
 		fmt.Printf("  %d: %s (Turma %s) - Nota: %.1f - Conceito: %s\n",
 			i+1, aluno.Nome, aluno.Turma, aluno.Nota, conceito)
 	}

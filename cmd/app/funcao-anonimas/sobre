@@ -1,0 +1,27 @@
+; As funções anônimas, também conhecidas como funções lambda ou literais de função,
+;  são um recurso poderoso e flexível em muitas linguagens de programação.
+;   Como o próprio nome sugere, são funções que não possuem um nome identificado.
+; Diferente de uma função tradicional que é declarada com um nome e pode ser chamada em vários pontos do código,
+;  uma função anônima é geralmente definida no local onde será utilizada, muitas vezes como argumento para outra função.
+
+; Características Principais
+
+; Sem Nome: A característica mais marcante é a ausência de um identificador (nome) para a função.
+; Declaração Inline: São frequentemente declaradas diretamente no código onde serão utilizadas,
+;  o que pode tornar o código mais conciso e legível em certas situações.
+; Funções de Primeira Classe: Em linguagens que tratam funções como "cidadãos de primeira classe" (como JavaScript, Python e Go), 
+; as funções anônimas podem ser atribuídas a variáveis, passadas como argumentos para outras funções e retornadas de outras funções.
+
+; Por que Usar Funções Anônimas?
+
+; O principal benefício das funções anônimas é a conveniência e a clareza em cenários específicos.
+;  Elas são ideais para:
+
+; Callbacks: Quando você precisa passar uma pequena lógica como argumento para outra função,
+;  que será executada posteriormente (um "callback").
+
+; Funções de Ordem Superior (Higher-Order Functions): Funções que operam em outras funções, como map, filter e reduce, 
+; frequentemente utilizam funções anônimas para definir a operação a ser aplicada em cada elemento de uma coleção.
+
+; Lógica de Curto Prazo: Para tarefas simples e que
+; não precisam ser reutilizadas em outro lugar, definir uma função nomeada pode ser um exagero.

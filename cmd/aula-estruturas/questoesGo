@@ -1,0 +1,34 @@
+// Questoes sobre estrutura de linguagem GO
+
+//1. Um desenvolvedor precisa armazenar uma lista de nomes de produtos para um carrinho de compras.
+//  A quantidade de produtos no carrinho pode aumentar ou diminuir a qualquer momento. 
+//  Qual das seguintes estruturas de dados em Go é a mais apropriada para essa tarefa?
+
+// a) var produtos [10]string (Array)
+// b) produtos := make(map[int]string) (Map)
+// c) type Produtos struct { ... } (Struct)
+// d) produtos := []string{} (Slice)
+// resposta: d
+
+// 2. O Propósito e as Vantagens das Structs:
+//  resposta:
+// Uma struct em Go serve para agrupar diferentes tipos de dados em uma única estrutura lógica,
+//  criando um "molde" para um objeto. Suas principais vantagens são:
+// Organização, Segurança de Tipos e Clareza
+
+// 3. Quais os critérios para a escolha entre Array, Slice e Map?
+// resposta:
+// Array: Uma coleção de tamanho fixo
+// Slice: Uma coleção de tamanho dinâmico, que pode crescer e diminuir
+// Map: Uma coleção não ordenada de pares chave-valor para associações
+
+// 4. O código de exemplo está organizado em várias funções (main, exemploForBasico, etc.)
+//  dentro do package main.
+// Qual é o papel da função main em um programa executável
+// e qual a principal vantagem de se dividir o código em funções menores?
+// resposta:
+// A função main é o ponto de entrada de qualquer programa executável em Go.
+//  A execução do programa sempre começa por ela.
+// A principal vantagem de dividir o código em funções menores
+// é a modularidade, que traz benefícios como Legibilidade, Reutilização e Manutenção
+

@@ -1,12 +1,10 @@
 // Arquivo go.mod define o módulo e suas dependências
-//module github.com/seu-usuario/meu-projeto-go
 
-//local do módulo
-module meu-projeto-go
+module github.com/ruanout1/aula-go-facinpro-meu-projeto-go
 
 go 1.24.0
 
-toolchain go1.24.1
+toolchain go1.24.10
 
 // Dependências para o exemplo Docker + MongoDB
 require (
@@ -29,10 +27,11 @@ require (
 )
 
 require (
-	github.com/PuerkitoBio/goquery v1.10.3 // indirect
-	github.com/andybalholm/cascadia v1.3.3 // indirect
-	golang.org/x/net v0.39.0 // indirect
-	golang.org/x/time v0.14.0 // indirect
+	github.com/PuerkitoBio/goquery v1.10.3
+	golang.org/x/time v0.14.0
 )
 
-// Indica que o módulo é compatível com a versão 1.22 do Go
+require (
+	github.com/andybalholm/cascadia v1.3.3 // indirect
+	golang.org/x/net v0.39.0 // indirect
+)
