@@ -76,9 +76,9 @@ func main() {
 	// Lista de URLs para crawlear
 	urls := []string{
 		"https://golang.org",
-		"https://go.dev",
-		"https://github.com",
-		"https://stackoverflow.com",
+		"https://facinpro.edu.br/",
+		"https://www.amazon.com.br/",
+		"https://classroom.google.com/",
 	}
 
 	// Marca o tempo de início

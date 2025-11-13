@@ -219,20 +219,20 @@ func main() {
 	// URLs de diferentes domínios
 	urls := []string{
 		// Mesmo domínio - será limitado
-		"https://golang.org",
-		"https://golang.org/doc",
-		"https://golang.org/pkg",
+		"https://www.gov.br/pt-br",
+		"https://www.gov.br/pt-br/servicos/assinatura-eletronica?origem=maisacessado_home",
+		"https://www.gov.br/pt-br/perfil_usuario/aposentado",
 
 		// Mesmo domínio - será limitado
-		"https://go.dev",
-		"https://go.dev/learn",
-		"https://go.dev/solutions",
+		"https://www.alura.com.br/",
+		"https://www.alura.com.br/como-funciona",
+		"https://www.alura.com.br/cursos-online-programacao",
 
 		// Domínios diferentes
-		"https://github.com/golang",
-		"https://stackoverflow.com/questions/tagged/go",
-		"https://pkg.go.dev",
-		"https://play.golang.org",
+		"https://facinpro.edu.br/",
+		"https://classroom.google.com/",
+		"https://www.amazon.com.br/",
+		"https://www.mercadolivre.com.br/",
 	}
 
 	// ═══════════════════════════════════════
