@@ -1,5 +1,4 @@
 package main
-package main
 
 import (
 	"context"
@@ -23,19 +22,19 @@ import (
 
 // Config representa as configurações da aplicação carregadas do .env
 type Config struct {
-	Environment  string
-	AppName      string
-	AppPort      string
-	AppHost      string
-	MongoURI     string
-	MongoHost    string
-	MongoPort    string
+	Environment   string
+	AppName       string
+	AppPort       string
+	AppHost       string
+	MongoURI      string
+	MongoHost     string
+	MongoPort     string
 	MongoDatabase string
-	Debug        string
-	LogLevel     string
-	APITimeout   string
-	EnableCORS   string
-	AllowOrigins string
+	Debug         string
+	LogLevel      string
+	APITimeout    string
+	EnableCORS    string
+	AllowOrigins  string
 }
 
 // User representa um usuário no MongoDB
@@ -50,9 +49,9 @@ type User struct {
 
 // App representa nossa aplicação com suas dependências
 type App struct {
-	Config   *Config
-	DB       *mongo.Database
-	Router   *mux.Router
+	Config *Config
+	DB     *mongo.Database
+	Router *mux.Router
 }
 
 // ===========================================
@@ -94,7 +93,7 @@ func ConnectMongoDB(config *Config) (*mongo.Database, error) {
 
 	// Configurações de conexão
 	clientOptions := options.Client().ApplyURI(config.MongoURI)
-	
+
 	// Conectar ao MongoDB
 	client, err := mongo.Connect(ctx, clientOptions)
 	if err != nil {
@@ -136,17 +135,17 @@ func (a *App) HealthHandler(w http.ResponseWriter, r *http.Request) {
 // ConfigHandler mostra as configurações da aplicação (sem senhas)
 func (a *App) ConfigHandler(w http.ResponseWriter, r *http.Request) {
 	config := map[string]interface{}{
-		"environment":   a.Config.Environment,
-		"app_name":      a.Config.AppName,
-		"app_port":      a.Config.AppPort,
-		"mongo_host":    a.Config.MongoHost,
-		"mongo_port":    a.Config.MongoPort,
+		"environment":    a.Config.Environment,
+		"app_name":       a.Config.AppName,
+		"app_port":       a.Config.AppPort,
+		"mongo_host":     a.Config.MongoHost,
+		"mongo_port":     a.Config.MongoPort,
 		"mongo_database": a.Config.MongoDatabase,
-		"debug":         a.Config.Debug,
-		"log_level":     a.Config.LogLevel,
-		"api_timeout":   a.Config.APITimeout,
-		"enable_cors":   a.Config.EnableCORS,
-		"timestamp":     time.Now().Format(time.RFC3339),
+		"debug":          a.Config.Debug,
+		"log_level":      a.Config.LogLevel,
+		"api_timeout":    a.Config.APITimeout,
+		"enable_cors":    a.Config.EnableCORS,
+		"timestamp":      time.Now().Format(time.RFC3339),
 	}
 
 	w.Header().Set("Content-Type", "application/json")
@@ -280,7 +279,7 @@ func (a *App) SetupRoutes() {
 func main() {
 	// Carregar configurações
 	config := LoadConfig()
-	
+
 	// Log das configurações iniciais
 	log.Printf("🚀 Iniciando %s", config.AppName)
 	log.Printf("🔧 Ambiente: %s", config.Environment)
@@ -308,6 +307,6 @@ func main() {
 	addr := fmt.Sprintf("%s:%s", config.AppHost, config.AppPort)
 	log.Printf("🌐 Servidor rodando em http://%s", addr)
 	log.Printf("📝 Acesse http://%s para ver os endpoints disponíveis", addr)
-	
+
 	log.Fatal(http.ListenAndServe(addr, app.Router))
 }
